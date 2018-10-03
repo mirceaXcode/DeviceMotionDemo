@@ -14,7 +14,10 @@
 		08BC0B0421657064003E44BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BC0B0221657064003E44BE /* LaunchScreen.storyboard */; };
 		08BC0B0721657064003E44BE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 08BC0B0621657064003E44BE /* main.m */; };
 		08BC0B0F21657098003E44BE /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08BC0B0E21657098003E44BE /* CoreMotion.framework */; };
-		08BC0B11216571A8003E44BE /* Square image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08BC0B10216571A8003E44BE /* Square image.jpg */; };
+		08BC0B1621657714003E44BE /* Firefox.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08BC0B1221657713003E44BE /* Firefox.jpg */; };
+		08BC0B1721657714003E44BE /* Wordpress.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08BC0B1321657714003E44BE /* Wordpress.jpg */; };
+		08BC0B1821657714003E44BE /* Blue Bird.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 08BC0B1421657714003E44BE /* Blue Bird.jpg */; };
+		08BC0B1921657714003E44BE /* North Face.png in Resources */ = {isa = PBXBuildFile; fileRef = 08BC0B1521657714003E44BE /* North Face.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +32,10 @@
 		08BC0B0521657064003E44BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08BC0B0621657064003E44BE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		08BC0B0E21657098003E44BE /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-		08BC0B10216571A8003E44BE /* Square image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Square image.jpg"; sourceTree = "<group>"; };
+		08BC0B1221657713003E44BE /* Firefox.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Firefox.jpg; sourceTree = "<group>"; };
+		08BC0B1321657714003E44BE /* Wordpress.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Wordpress.jpg; sourceTree = "<group>"; };
+		08BC0B1421657714003E44BE /* Blue Bird.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Blue Bird.jpg"; sourceTree = "<group>"; };
+		08BC0B1521657714003E44BE /* North Face.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "North Face.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +77,11 @@
 				08BC0AFD21657063003E44BE /* Main.storyboard */,
 				08BC0B0021657064003E44BE /* Assets.xcassets */,
 				08BC0B0221657064003E44BE /* LaunchScreen.storyboard */,
+				08BC0B1421657714003E44BE /* Blue Bird.jpg */,
+				08BC0B1221657713003E44BE /* Firefox.jpg */,
+				08BC0B1521657714003E44BE /* North Face.png */,
+				08BC0B1321657714003E44BE /* Wordpress.jpg */,
 				08BC0B0521657064003E44BE /* Info.plist */,
-				08BC0B10216571A8003E44BE /* Square image.jpg */,
 				08BC0B0621657064003E44BE /* main.m */,
 			);
 			path = DeviceMotionDemo;
@@ -143,10 +152,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08BC0B1721657714003E44BE /* Wordpress.jpg in Resources */,
+				08BC0B1821657714003E44BE /* Blue Bird.jpg in Resources */,
 				08BC0B0421657064003E44BE /* LaunchScreen.storyboard in Resources */,
+				08BC0B1621657714003E44BE /* Firefox.jpg in Resources */,
 				08BC0B0121657064003E44BE /* Assets.xcassets in Resources */,
 				08BC0AFF21657063003E44BE /* Main.storyboard in Resources */,
-				08BC0B11216571A8003E44BE /* Square image.jpg in Resources */,
+				08BC0B1921657714003E44BE /* North Face.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

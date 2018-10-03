@@ -15,6 +15,8 @@
 
 @property (assign, nonatomic) double x,y,z;
 
+@property(strong, nonatomic) NSArray *images;
+
 @end
 
 @implementation ViewController
@@ -22,7 +24,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.imageView.image = [UIImage imageNamed:@"Square image.jpg"];
+    self.images = @[[UIImage imageNamed:@"Blue Bird.jpg"], [UIImage imageNamed:@"Firefox.jpg"], [UIImage imageNamed:@"North Face.png"], [UIImage imageNamed:@"Wordpress.jpg"]];
+    
     self.manager = [[CMMotionManager alloc] init];
     [self.manager startDeviceMotionUpdates];
     
@@ -33,23 +36,42 @@
     
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     
-    [self.manager startDeviceMotionUpdatesToQueue:queue withHandler:^(CMDeviceMotion *data, NSError *error) {
+    CMAttitudeReferenceFrame frame = CMAttitudeReferenceFrameXArbitraryZVertical;
+    //CMAttitudeReferenceFrame frame = CMAttitudeReferenceFrameXArbitraryCorrectedZVertical;
+    //CMAttitudeReferenceFrame frame = CMAttitudeReferenceFrameXMagneticNorthZVertical;
+    //CMAttitudeReferenceFrame frame = CMAttitudeReferenceFrameXTrueNorthZVertical;
+    
+    [self.manager startDeviceMotionUpdatesUsingReferenceFrame:frame toQueue:queue withHandler:^(CMDeviceMotion *data, NSError *error) {
         //do work here
-        double x = data.gravity.x;
-        double y = data.gravity.y;
-        
-        double rotation = -atan2(x, -y);
-        
+        double yaw = data.attitude.yaw;
+
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             // update UI here
             
-            weakSelf.imageView.transform = CGAffineTransformMakeRotation(rotation);
+            weakSelf.imageView.transform = CGAffineTransformMakeRotation(yaw);
+            [self chooseImage:yaw];
       
         }];
     }];
 }
 
-
+-(void) chooseImage:(double)yaw{
+    if(yaw <= M_PI_4){ // less than 45 degrees
+        if(yaw >= -M_PI_4) { // bigger than -45 degrees
+            self.imageView.image = self.images[0];
+        } else if(yaw >= -3.0*M_PI_4){
+            self.imageView.image = self.images[1];
+        } else{
+            self.imageView.image = self.images[2];
+        }
+    }else{
+        if(yaw <= 3.0*M_PI_4){
+            self.imageView.image = self.images[3];
+        } else{
+            self.imageView.image = self.images[2];
+        }
+    }
+}
 
 
 @end
