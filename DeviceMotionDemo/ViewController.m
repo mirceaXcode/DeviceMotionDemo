@@ -7,8 +7,13 @@
 //
 
 #import "ViewController.h"
+@import CoreMotion;
 
 @interface ViewController ()
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) CMMotionManager *manager;
+
+@property (assign, nonatomic) double x,y,z;
 
 @end
 
@@ -16,14 +21,35 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    self.imageView.image = [UIImage imageNamed:@"Square image.jpg"];
+    self.manager = [[CMMotionManager alloc] init];
+    [self.manager startDeviceMotionUpdates];
+    
+    
+    self.manager.accelerometerUpdateInterval = 0.1;
+    
+    ViewController * __weak weakSelf = self;
+    
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    
+    [self.manager startDeviceMotionUpdatesToQueue:queue withHandler:^(CMDeviceMotion *data, NSError *error) {
+        //do work here
+        double x = data.gravity.x;
+        double y = data.gravity.y;
+        
+        double rotation = -atan2(x, -y);
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            // update UI here
+            
+            weakSelf.imageView.transform = CGAffineTransformMakeRotation(rotation);
+      
+        }];
+    }];
 }
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 
 @end
